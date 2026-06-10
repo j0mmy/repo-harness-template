@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "active_sprint": "S001",
+  "sprints": [
+    {
+      "id": "S001",
+      "title": "Adopt the harness",
+      "state": "active",
+      "goal": "Replace the template placeholders with this project's first real, verified feature while keeping make check green.",
+      "task_ids": ["F001"],
+      "required_gates": ["make check"],
+      "evaluator_rubric_id": "default_harness_rubric",
+      "observability": {
+        "runtime_signal_required": true,
+        "otel_semconv": "OBSERVABILITY.md"
+      }
+    }
+  ]
+}

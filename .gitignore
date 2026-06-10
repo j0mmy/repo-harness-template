@@ -1,0 +1,6 @@
+# Generated harness runtime artifacts (also covered by .harness/.gitignore).
+.harness/runs/
+
+# Python bytecode caches.
+__pycache__/
+*.py[cod]

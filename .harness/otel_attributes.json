@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "attributes": {
+    "service.name": "Logical name of this repository/service; set it when exporting traces beyond this repo.",
+    "harness.task.id": "Task id from TASKS.json, e.g. F001.",
+    "harness.run.kind": "Run kind recorded by scripts/run_with_signals.py: verification|test|e2e|benchmark.",
+    "process.exit_code": "Integer exit code returned by the wrapped command.",
+    "test.status": "passed|failed, derived from the wrapped command's exit code."
+  }
+}

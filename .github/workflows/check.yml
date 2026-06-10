@@ -1,0 +1,20 @@
+name: check
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Same core truth as local work: Phase 0 cold start, then the canonical gate.
+      # Both run on GNU make + python3 stdlib only; no installs, no network.
+      - name: Initialize (Phase 0)
+        run: make initialize
+      - name: Canonical gate
+        run: make check

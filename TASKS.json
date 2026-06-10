@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "active_task": null,
+  "vcr": 1.0,
+  "policy": "Done means behavior verification passes, not merely that code or docs were written. VCR denominator includes tasks in active or verified state only; planned and blocked are excluded. VCR = verified / (active + verified), where verified requires state='verified', verification.status='passing', and verification.signals.exit_code=0. Do not activate a second active task. Blocked tasks are suspended records that may coexist with a different active task.",
+  "tasks": [
+    {
+      "id": "F000",
+      "title": "Bootstrap the agent harness scaffold",
+      "state": "verified",
+      "change_scope": "architecture_rule",
+      "done_behavior": "A fresh copy of this repository passes make initialize, make check, make test, and make validate using GNU make and the Python standard library only, and scripts/install_harness.py installs the harness into another repository, refusing to overwrite differing files unless --force is passed.",
+      "verification": {
+        "command": "python3 scripts/run_with_signals.py --task-id F000 --kind verification -- make check",
+        "status": "passing",
+        "evidence": "Runtime signal recorded for `make check`: format-check/lint/typecheck gates, all five validators (json, tasks VCR=1.000, sprints, evaluator, architecture), and 65 stdlib unittest contract tests passed, including the installer e2e pipeline. trace_id=bd44c61017dd45410095dc12106a31c4 span_id=777a1902b2eb5cc2 duration_ms=2268.",
+        "last_run_at": "2026-06-10T23:03:25+00:00",
+        "signals": {
+          "exit_code": 0,
+          "trace_id": "bd44c61017dd45410095dc12106a31c4",
+          "span_id": "777a1902b2eb5cc2",
+          "duration_ms": 2268
+        }
+      }
+    },
+    {
+      "id": "F001",
+      "title": "First feature (replace with your project's first real task)",
+      "state": "planned",
+      "change_scope": "single_component",
+      "done_behavior": "Replace this with the observable behavior that proves your first feature is done (what a user or system can do, not what code was written).",
+      "verification": {
+        "command": "python3 -m unittest -q tests.test_first_feature && make check",
+        "status": "not_run",
+        "evidence": "",
+        "last_run_at": null
+      }
+    }
+  ]
+}

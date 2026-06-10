@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "active_rubric": "default_harness_rubric",
+  "rubrics": [
+    {
+      "id": "default_harness_rubric",
+      "title": "Default harness evaluator rubric",
+      "pass_threshold": 4.0,
+      "dimensions": [
+        {
+          "id": "behavior_correctness",
+          "weight": 30,
+          "pass_threshold": 4,
+          "criteria": ["done_behavior is exercised by the declared verification command"],
+          "blockers": ["declared verification command was never run"]
+        },
+        {
+          "id": "verification_evidence",
+          "weight": 25,
+          "pass_threshold": 4,
+          "criteria": ["runtime signal and TASKS.json evidence exist for completion claims"],
+          "blockers": ["task marked verified without signals.exit_code=0"]
+        },
+        {
+          "id": "architecture_boundaries",
+          "weight": 15,
+          "pass_threshold": 4,
+          "criteria": ["declared boundaries and required e2e checks are respected"],
+          "blockers": []
+        },
+        {
+          "id": "observability",
+          "weight": 20,
+          "pass_threshold": 4,
+          "criteria": ["OpenTelemetry trace/span attributes exist for verification runs"],
+          "blockers": []
+        },
+        {
+          "id": "privacy_security",
+          "weight": 10,
+          "pass_threshold": 4,
+          "criteria": ["no secrets or private fixtures in code, docs, or recorded traces"],
+          "blockers": ["secret material committed or printed in evidence"]
+        }
+      ]
+    }
+  ]
+}

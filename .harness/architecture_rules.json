@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "rules": [
+    {
+      "id": "stdlib_only_harness_gates",
+      "type": "forbidden_import",
+      "paths": ["scripts/**/*.py", "tests/**/*.py"],
+      "modules": ["pytest", "ruff", "mypy", "requests"],
+      "why": "Harness gates must run with GNU make and the Python standard library only, so a fresh clone verifies without installing anything.",
+      "fix": "Use stdlib unittest and stdlib modules in scripts/ and tests/; wire third-party tooling into the format/lint/typecheck targets your repo owns instead.",
+      "rerun": "make validate-architecture && make test"
+    }
+  ]
+}
