@@ -1,5 +1,7 @@
 # Agent Harness Template
 
+Inspired by https://walkinglabs.github.io/learn-harness-engineering/en/
+
 A reusable, repo-agnostic harness for agent-run software projects. It makes a repository self-governing for AI agents: machine-readable task state, one canonical quality gate, and runtime evidence for every completion claim.
 
 ```text
